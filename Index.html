@@ -6,10 +6,8 @@
   <title>Axira Capital</title>
   <style>
     :root {
-      --bg: #0a0a0a;
-      --text: #ffffff;
-      --text-muted: #cccccc;
-      --accent: #ffffff;
+      --primary-color: #ffffff;
+      --bg-color: #0a0a0a;
       --font-main: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     }
 
@@ -17,15 +15,10 @@
       margin: 0;
       padding: 0;
       font-family: var(--font-main);
-      background: var(--bg);
-      color: var(--text);
+      background-color: var(--bg-color);
+      color: var(--primary-color);
       font-size: 16px;
       line-height: 1.6;
-    }
-
-    a {
-      color: var(--accent);
-      text-decoration: none;
     }
 
     .hero {
@@ -36,7 +29,6 @@
       justify-content: center;
       align-items: center;
       text-align: center;
-      padding: 0 20px;
       position: relative;
     }
 
@@ -44,13 +36,11 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: rgba(0, 0, 0, 0.6);
+      background: rgba(0, 0, 0, 0.5);
       z-index: 1;
     }
 
-    .hero h1,
-    .hero p,
-    .hero a {
+    .hero h1, .hero p, .hero a {
       position: relative;
       z-index: 2;
     }
@@ -59,24 +49,29 @@
       font-size: 3rem;
       font-weight: 500;
       margin-bottom: 1rem;
-      color: var(--text);
     }
 
     .hero p {
       font-size: 1.2rem;
       max-width: 580px;
       margin-bottom: 2rem;
-      color: var(--text-muted);
+      color: #ddd;
     }
 
     .button {
+      text-decoration: none;
       font-size: 1rem;
       padding: 14px 28px;
-      background-color: var(--text);
-      color: var(--bg);
+      background-color: white;
+      color: black;
       border: none;
-      border-radius: 2px;
+      border-radius: 4px;
       cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    .button:hover {
+      background-color: #ddd;
     }
 
     section {
@@ -86,84 +81,49 @@
       text-align: center;
     }
 
-    h2 {
-      font-size: 1.6rem;
+    .how-it-works h2 {
       margin-bottom: 40px;
-      font-weight: 400;
-      color: var(--text);
     }
 
-    p {
-      color: var(--text-muted);
-    }
-
-    .how-it-works p,
-    .testimonials blockquote {
-      font-size: 1.2rem;
-      margin: 20px auto;
-      max-width: 600px;
+    .how-it-works .step {
       opacity: 0;
       transform: translateY(20px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
+      transition: opacity 0.8s ease, transform 0.8s ease;
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 20px auto;
     }
 
-    .how-it-works p.visible {
+    .how-it-works .step.visible {
       opacity: 1;
       transform: translateY(0);
     }
 
-    .testimonials blockquote {
-      font-style: italic;
-      margin: 20px auto;
-      max-width: 600px;
-      padding: 10px 20px;
-      color: white; /* Make text truly visible */
-      border-left: 4px solid #999; /* Brighter line for contrast */
-    }
-    .logos {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 40px;
-      margin-top: 40px;
-    }
-
-    .logos img {
-      height: 40px;
-      filter: grayscale(100%) brightness(100%);
-      opacity: 0.8;
-    }
-
     form {
-      background: transparent;
-      color: var(--text);
+      margin-top: 40px;
+      padding: 40px 0;
     }
 
     label {
       display: block;
-      text-align: left;
-      margin: 20px 0 5px;
-      color: var(--text-muted);
+      margin-top: 20px;
+      font-weight: 500;
       font-size: 0.95rem;
     }
 
-    input,
-    textarea {
+    input, textarea {
       width: 100%;
       padding: 12px;
+      margin-top: 8px;
       background: #1a1a1a;
-      border: none;
       color: white;
+      border: 1px solid #444;
       font-size: 1rem;
     }
 
-    input[type="file"] {
-      background: transparent;
-    }
-
-    input:focus,
-    textarea:focus {
-      outline: 1px solid var(--accent);
+    input:focus, textarea:focus {
+      border-color: #888;
+      outline: none;
     }
 
     button[type="submit"] {
@@ -176,12 +136,34 @@
       cursor: pointer;
     }
 
+    .testimonials blockquote {
+      font-style: italic;
+      margin: 20px auto;
+      max-width: 600px;
+      padding: 10px 20px;
+      color: white;
+      border-left: 4px solid #999;
+    }
+
+    .logos {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 40px;
+      margin-top: 40px;
+    }
+
+    .logos img {
+      height: 40px;
+      filter: grayscale(100%) brightness(150%);
+      opacity: 0.8;
+    }
+
     footer {
-      margin-top: 80px;
       text-align: center;
       font-size: 0.9rem;
       color: #777;
-      padding-bottom: 40px;
+      padding: 60px 20px 40px;
     }
   </style>
 </head>
@@ -193,7 +175,7 @@
     <a href="#request" class="button">Request Capital</a>
   </div>
 
-  <section class="how-it-works" id="how-it-works">
+  <section class="how-it-works">
     <h2>How It Works</h2>
     <p class="step">Submit your residual report</p>
     <p class="step">Receive a tailored capital offer</p>
@@ -217,7 +199,8 @@
   <section class="about-us">
     <h2>About Us</h2>
     <p>
-      At Axira Capital, we are a team of seasoned payment industry experts committed to providing flexible capital solutions to ISOs. Our deep understanding of the payment landscape enables us to offer tailored financial support, helping businesses thrive in a competitive market.
+      At Axira Capital, we are a team of seasoned payment industry experts committed to providing flexible capital solutions to ISOs.
+      Our deep understanding of the payment landscape enables us to offer tailored financial support, helping businesses thrive in a competitive market.
     </p>
   </section>
 
@@ -248,19 +231,19 @@
       <textarea name="notes" rows="4"></textarea>
 
       <label for="residual-uploads">Upload residual reports (last 3 months)</label>
-      <input type="file" name="residual-uploads" accept=".pdf,.doc,.docx,.jpg,.png,.csv,.xlsx,.xls" required>
+      <input type="file" name="residual-uploads" required>
 
       <button type="submit">Submit Request</button>
     </form>
   </section>
 
-  <section>
+  <section class="contact-us">
     <h2>Contact Us</h2>
-    <p>Email: <a href="mailto:info@axiracapital.com">info@axiracapital.com</a></p>
+    <p>Email: <a href="mailto:info@axiracapital.com" style="color:white;">info@axiracapital.com</a></p>
   </section>
 
   <footer>
-    Terms subject to approval. Axira Capital is not a bank.
+    <p>Terms subject to approval. Axira Capital is not a bank.</p>
   </footer>
 
   <script>
@@ -272,9 +255,7 @@
       });
     }, { threshold: 0.2 });
 
-    document.querySelectorAll('.step').forEach(step => {
-      observer.observe(step);
-    });
+    document.querySelectorAll('.step').forEach(step => observer.observe(step));
   </script>
 
 </body>
