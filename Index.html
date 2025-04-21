@@ -6,8 +6,10 @@
   <title>Axira Capital</title>
   <style>
     :root {
-      --primary-color: #141414;
-      --bg-color: #f6f6f6;
+      --bg: #0a0a0a;
+      --text: #ffffff;
+      --text-muted: #cccccc;
+      --accent: #ffffff;
       --font-main: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     }
 
@@ -15,10 +17,15 @@
       margin: 0;
       padding: 0;
       font-family: var(--font-main);
-      background: var(--bg-color);
-      color: var(--primary-color);
+      background: var(--bg);
+      color: var(--text);
       font-size: 16px;
       line-height: 1.6;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
     }
 
     .hero {
@@ -29,7 +36,6 @@
       justify-content: center;
       align-items: center;
       text-align: center;
-      color: white;
       padding: 0 20px;
       position: relative;
     }
@@ -38,7 +44,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: rgba(0, 0, 0, 0.5);
+      background: rgba(0, 0, 0, 0.6);
       z-index: 1;
     }
 
@@ -52,52 +58,53 @@
     .hero h1 {
       font-size: 3rem;
       font-weight: 500;
-      letter-spacing: -0.5px;
       margin-bottom: 1rem;
+      color: var(--text);
     }
 
     .hero p {
       font-size: 1.2rem;
       max-width: 580px;
       margin-bottom: 2rem;
-      color: #eee;
+      color: var(--text-muted);
     }
 
     .button {
-      text-decoration: none;
       font-size: 1rem;
       padding: 14px 28px;
-      background-color: white;
-      color: black;
+      background-color: var(--text);
+      color: var(--bg);
       border: none;
-      border-radius: 4px;
+      border-radius: 2px;
       cursor: pointer;
-      transition: background 0.2s ease;
     }
 
-    .button:hover {
-      background-color: #ddd;
-    }
-
-    .how-it-works {
-      background-color: #141414;
-      color: white;
+    section {
+      max-width: 720px;
+      margin: 80px auto;
+      padding: 0 20px;
       text-align: center;
-      padding: 100px 20px;
     }
 
-    .how-it-works h2 {
-      font-size: 1.8rem;
+    h2 {
+      font-size: 1.6rem;
       margin-bottom: 40px;
+      font-weight: 400;
+      color: var(--text);
     }
 
-    .how-it-works p {
+    p {
+      color: var(--text-muted);
+    }
+
+    .how-it-works p,
+    .testimonials blockquote {
+      font-size: 1.2rem;
+      margin: 20px auto;
+      max-width: 600px;
       opacity: 0;
       transform: translateY(20px);
       transition: opacity 0.6s ease, transform 0.6s ease;
-      font-size: 1.2rem;
-      max-width: 700px;
-      margin: 20px auto;
     }
 
     .how-it-works p.visible {
@@ -105,63 +112,10 @@
       transform: translateY(0);
     }
 
-    section {
-      max-width: 720px;
-      margin: 80px auto;
-      padding: 0 20px;
-    }
-
-    form {
-      background: white;
-      padding: 40px;
-      border-radius: 6px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
-    }
-
-    label {
-      display: block;
-      margin-top: 20px;
-      font-weight: 500;
-      font-size: 0.95rem;
-    }
-
-    input, textarea {
-      width: 100%;
-      padding: 12px;
-      margin-top: 8px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      font-size: 1rem;
-      background: #fdfdfd;
-    }
-
-    input:focus, textarea:focus {
-      border-color: #000;
-      outline: none;
-    }
-
-    button[type="submit"] {
-      margin-top: 30px;
-      padding: 12px 28px;
-      background-color: var(--primary-color);
-      color: white;
-      border: none;
-      border-radius: 4px;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: background 0.2s ease;
-    }
-
-    button[type="submit"]:hover {
-      background: #000;
-    }
-
     .testimonials blockquote {
       font-style: italic;
-      margin: 20px auto;
-      max-width: 600px;
-      padding: 10px;
-      border-left: 4px solid #ccc;
+      border-left: 4px solid #444;
+      padding-left: 1rem;
     }
 
     .logos {
@@ -174,15 +128,58 @@
 
     .logos img {
       height: 40px;
-      filter: grayscale(100%);
-      opacity: 0.7;
+      filter: grayscale(100%) brightness(100%);
+      opacity: 0.8;
+    }
+
+    form {
+      background: transparent;
+      color: var(--text);
+    }
+
+    label {
+      display: block;
+      text-align: left;
+      margin: 20px 0 5px;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 12px;
+      background: #1a1a1a;
+      border: none;
+      color: white;
+      font-size: 1rem;
+    }
+
+    input[type="file"] {
+      background: transparent;
+    }
+
+    input:focus,
+    textarea:focus {
+      outline: 1px solid var(--accent);
+    }
+
+    button[type="submit"] {
+      margin-top: 30px;
+      padding: 12px 28px;
+      background-color: white;
+      color: black;
+      border: none;
+      font-size: 1rem;
+      cursor: pointer;
     }
 
     footer {
+      margin-top: 80px;
       text-align: center;
       font-size: 0.9rem;
-      color: #888;
-      padding: 60px 20px 40px;
+      color: #777;
+      padding-bottom: 40px;
     }
   </style>
 </head>
@@ -203,7 +200,7 @@
   </section>
 
   <section class="testimonials">
-    <h2 style="text-align:center;">What Our Clients Say</h2>
+    <h2>What Our Clients Say</h2>
     <blockquote>"Axira Capital provided the funding we needed swiftly and professionally. Highly recommended!"</blockquote>
     <blockquote>"Their team understands the payment industry inside out. A reliable partner for our financial needs."</blockquote>
   </section>
@@ -216,15 +213,14 @@
   </section>
 
   <section class="about-us">
-    <h2 style="text-align:center;">About Us</h2>
-    <p style="text-align:center;">
-      At Axira Capital, we are a team of seasoned payment industry experts committed to providing flexible capital solutions to ISOs.
-      Our deep understanding of the payment landscape enables us to offer tailored financial support, helping businesses thrive in a competitive market.
+    <h2>About Us</h2>
+    <p>
+      At Axira Capital, we are a team of seasoned payment industry experts committed to providing flexible capital solutions to ISOs. Our deep understanding of the payment landscape enables us to offer tailored financial support, helping businesses thrive in a competitive market.
     </p>
   </section>
 
   <section id="request">
-    <h2 style="text-align:center;">Request Capital</h2>
+    <h2>Request Capital</h2>
     <form name="capital-request" method="POST" data-netlify="true" enctype="multipart/form-data">
       <input type="hidden" name="form-name" value="capital-request">
 
@@ -256,13 +252,13 @@
     </form>
   </section>
 
-  <section class="contact-us" style="text-align:center; margin-top:60px;">
+  <section>
     <h2>Contact Us</h2>
     <p>Email: <a href="mailto:info@axiracapital.com">info@axiracapital.com</a></p>
   </section>
 
   <footer>
-    <p>Terms subject to approval. Axira Capital is not a bank.</p>
+    Terms subject to approval. Axira Capital is not a bank.
   </footer>
 
   <script>
@@ -272,9 +268,7 @@
           entry.target.classList.add('visible');
         }
       });
-    }, {
-      threshold: 0.2
-    });
+    }, { threshold: 0.2 });
 
     document.querySelectorAll('.step').forEach(step => {
       observer.observe(step);
